@@ -22,23 +22,30 @@ public:
 
 	bool LoadProcess(LPCWSTR procname){
 		bool found = false;
+		int tries = 10;
+
 
 		while (!found){
 			game_window = FindWindow(NULL, procname);
 
-			if (game_window){
+			if (game_window || tries < 1){
 				found = true;
 			}
 
 			// not flood
-			GetWindowThreadProcessId(game_window, &pid);
-			PRINT_DEBUG("Process Not Found");
-			::Sleep(400);
+			
+			PRINT_DEBUG_P("Process Not Found - Tries: ", tries);
+			::Sleep(1000);
+			--tries;
 		}
 
+		/*
+		  when the loop breaks means found a window!
+		  so we store the PID of the process in pid variable
+		*/
+		if (found) 	GetWindowThreadProcessId(game_window, &pid);
 
-
-
+		// returns true/false if found a process 
 		return found;
 	}
 
