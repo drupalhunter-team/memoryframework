@@ -25,7 +25,7 @@ enum OPERATOR {
 };
 
 
-class Mem {
+class MemoryFramework {
 
 
 private:
@@ -34,20 +34,25 @@ private:
 
 	GameProcess gp;
 
-protected:
-	DWORD getBaseAddress(HWND window, DWORD pid);
 
 
 public:
-	Mem(GameProcess& process);
-	~Mem();
+	MemoryFramework(GameProcess& process);
+	MemoryFramework();
+	~MemoryFramework();
 
 
 
 
-	template<typename T>
-	T ReadMemory(DWORD address){
-		DWORD base = baseaddr + address;
+	DWORD ReadMemory(DWORD address){
+		DWORD value;
+	
+		ReadProcessMemory(gp.getGameHandle(), (LPVOID)address, &value, sizeof(value), 0);
+
+		
+
+		return value;
+		
 
 	}
 

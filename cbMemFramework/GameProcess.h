@@ -14,40 +14,18 @@ private:
 	DWORD pid;
 	HWND game_window;
 	DWORD base_address;
+	HANDLE game_handle;
+
+	DWORD getBaseAddress(HWND window, DWORD pid);
 
 public:
 	GameProcess();
 	~GameProcess();
 
 
-	bool LoadProcess(LPCWSTR procname){
-		bool found = false;
-		int tries = 10;
+	bool LoadProcess(LPCWSTR procname);
+	void initProcess();
 
-
-		while (!found){
-			game_window = FindWindow(NULL, procname);
-
-			if (game_window || tries < 1){
-				found = true;
-			}
-
-			// not flood
-			
-			PRINT_DEBUG_P("Process Not Found - Tries: ", tries);
-			::Sleep(1000);
-			--tries;
-		}
-
-		/*
-		  when the loop breaks means found a window!
-		  so we store the PID of the process in pid variable
-		*/
-		if (found) 	GetWindowThreadProcessId(game_window, &pid);
-
-		// returns true/false if found a process 
-		return found;
-	}
 
 
 	DWORD Pid(){
@@ -66,6 +44,18 @@ public:
 	void Window(HWND window){
 		game_window = window;
 	}
+
+	DWORD processBaseAddr(){
+		return base_address;
+	}
+
+	HANDLE getGameHandle(){
+		return game_handle;
+	}
+
+	
+
+
 
 
 
