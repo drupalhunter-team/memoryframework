@@ -7,7 +7,7 @@
 int main(int argc, char *argv[]){
 
 	GameProcess game;
-	if (game.LoadProcess(L"AprQ2")){
+	if (game.LoadProcess(L"Sem Título - Bloco de Notas")){
 		game.initProcess();
 	}
 	else {
@@ -26,13 +26,12 @@ int main(int argc, char *argv[]){
 	DWORD con_text = game.processBaseAddr() + 0x004C1050;
 	
 	DWORD result = NULL;
-	char text[16];
-	ZeroMemory(&text, 16);
+	char c;
+	
 
 	while (1){
-		result = memoryhandler.ReadMemory(con_text);
-		memmove(&text, (LPVOID)&result, sizeof(result) + 1);
-		//memcpy(&text,(LPVOID)&result, 14);
+		c = memoryhandler.ReadMemory<char>(con_text);
+		
 
 	}
 	//memcpy(&c, )

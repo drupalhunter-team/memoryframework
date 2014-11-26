@@ -17,7 +17,7 @@ bool GameProcess::LoadProcess(LPCWSTR procname){
 	int tries = 10;
 
 
-	while (1){
+	for(;;){
 		game_window = FindWindow(NULL, procname);
 
 		if (game_window){

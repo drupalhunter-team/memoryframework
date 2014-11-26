@@ -43,15 +43,17 @@ public:
 
 
 
-
-	DWORD ReadMemory(DWORD address){
+	template<typename T>
+	T ReadMemory(DWORD address){
 		DWORD value;
-	
+		T ret_value;
+
 		ReadProcessMemory(gp.getGameHandle(), (LPVOID)address, &value, sizeof(value), 0);
 
-		
 
-		return value;
+		ret_value = static_cast<T>(value);
+
+		return ret_value;
 		
 
 	}
