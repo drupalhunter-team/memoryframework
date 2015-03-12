@@ -7,7 +7,7 @@
 int main(int argc, char *argv[]){
 
 	GameProcess game;
-	if (game.LoadProcess(L"Sem Título - Bloco de Notas")){
+	if (game.LoadProcess(L"new  0 - Notepad++ [Administrator]")){
 		game.initProcess();
 	}
 	else {
@@ -26,14 +26,9 @@ int main(int argc, char *argv[]){
 	DWORD con_text = game.processBaseAddr() + 0x004C1050;
 	
 	DWORD result = NULL;
-	char c;
+	char* c;
 	
 
-	while (1){
-		c = memoryhandler.ReadMemory<char>(con_text);
-		
-
-	}
 	//memcpy(&c, )
 	//strcpy(texto, memoryhandler.ReadMemory<char*>(con_text));
 

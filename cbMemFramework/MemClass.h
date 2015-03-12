@@ -44,17 +44,18 @@ public:
 
 
 	template<typename T>
-	T ReadMemory(DWORD address){
+	T ReadMemory(DWORD address, int len){
+		
 		DWORD value;
+		LPVOID buffer = NULL;
 		T ret_value;
 
-		ReadProcessMemory(gp.getGameHandle(), (LPVOID)address, &value, sizeof(value), 0);
+		if (ReadProcessMemory(gp.getGameHandle(), (LPVOID)address, buffer, len, 0)){
+			ret_value = dynamic_cast<T>(buffer);
+			return ret_value;
+		}
 
-
-		ret_value = static_cast<T>(value);
-
-		return ret_value;
-		
+		return NULL;
 
 	}
 

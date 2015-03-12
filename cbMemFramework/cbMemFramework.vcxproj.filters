@@ -27,8 +27,8 @@
     <ClInclude Include="Global.h">
       <Filter>MemFramework</Filter>
     </ClInclude>
-    <ClInclude Include="IniReader.h">
-      <Filter>MemFramework</Filter>
+    <ClInclude Include="Config.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -44,8 +44,8 @@
     <ClCompile Include="Global.cpp">
       <Filter>MemFramework</Filter>
     </ClCompile>
-    <ClCompile Include="IniReader.cpp">
-      <Filter>MemFramework</Filter>
+    <ClCompile Include="Config.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

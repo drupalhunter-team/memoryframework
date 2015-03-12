@@ -78,15 +78,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Config.h" />
     <ClInclude Include="GameProcess.h" />
     <ClInclude Include="Global.h" />
-    <ClInclude Include="IniReader.h" />
     <ClInclude Include="MemClass.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Config.cpp" />
     <ClCompile Include="GameProcess.cpp" />
     <ClCompile Include="Global.cpp" />
-    <ClCompile Include="IniReader.cpp" />
     <ClCompile Include="MemClass.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>

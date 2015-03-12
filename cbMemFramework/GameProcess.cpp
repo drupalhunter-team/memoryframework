@@ -3,18 +3,19 @@
 
 GameProcess::GameProcess()
 {
+	
 }
 
 
 GameProcess::~GameProcess()
 {
-}
 
+}
 
 
 bool GameProcess::LoadProcess(LPCWSTR procname){
 	bool found = false;
-	int tries = 10;
+
 
 
 	for(;;){
@@ -25,15 +26,13 @@ bool GameProcess::LoadProcess(LPCWSTR procname){
 			break;
 		}
 
-		if (tries < 1){
-			break;
-		}
+		
 
 		// not flood
 
-		PRINT_DEBUG_P("Process Not Found - Tries: ", tries);
+		PRINT_DEBUG("Process Not Found");
 		::Sleep(1000);
-		--tries;
+	
 	}
 
 	/*
